@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+			<title>C语言格式化,在线美化C语言代码-钛导航在线工具</title>
+		<meta name="applicable-device" content="pc,mobile">
+		<meta http-equiv="Cache-Control" content="no-transform">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="keywords" content="C语言代码格式化,C语言代码美化,C语言代码在线格式化,c语言代码优化工具">
+		<meta name="description" content="C语言格式化工具为您提供C语言格式化,C语言代码美化,C语言代码格式化,C语言代码格式化美化排版处理,,C语言代码格式化美化在线工具,需要将C语言代码美化时,输入您需要格式化的C语言代码,点击C语言代码格式化,即可转换成功,并自动将C语言语法高亮着色,方便阅读查看C语言语法是否正确等">
+		<meta name="renderer" content="webkit">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="icon" href="https://tool.taidaohang.com/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+		<link href="./format/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="./format/tool.css" rel="stylesheet" type="text/css">
+		<!--[if lt IE 9]><script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script><script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><!---->
+	</head>
+	<body>
+		<div class="navbar navbar-default navbar-static-top navbar-fixed-top">
+			<div class="jz container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">钛导航在线工具</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+					<a class="navbar-brand" href="https://tool.taidaohang.com/" title="钛导航在线工具">
+						<em class="logo_ico glyphicon glyphicon-wrench"></em>钛导航在线工具</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col10main">
+					<div class="accordion" id="accordion2">
+						<div class="accordion-group">
+							<div class="panel">
+								<form id="form1" class="form-horizontal" method="post">
+									<div class="form-group">
+										<div class="col-sm-12">
+											<textarea class="form-control" id="content" name="content" rows="12" placeholder="请输入要格式化美化的C语言代码">#include &lt;stdio.h&gt;
+main(){
+printf("Hello World!\n");
+}
+											</textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-12 text-center">
+											<button class="btn btn-success" onclick="runTabifier(&#39;C语言&#39;);" type="button" autocomplete="off">C语言代码格式化</button>
+											<span id="copyallcode" class="btn btn-default" data-clipboard-target="#result" data-original-title="">复制</span>
+											<input class="btn btn-default" onclick="Empty()" type="button" value="清空">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-12">
+											<pre style="display: block;">
+												<code id="result" class="hljs">
+												</code>
+											</pre>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="./format/jquery-1.11.3.min.js" type="text/javascript"></script>
+		<script src="./format/bootstrap.min.js" type="text/javascript"></script>
+		<!-- 复制功能 -->
+		<script src="./format/tool.js" type="text/javascript"></script>
+		<script src="./format/pcformat.js" type="text/javascript"></script>
+		<!-- 语法高亮的CSS -->
+		<link rel="stylesheet" href="./format/monokai.css">
+		<!-- 语法高亮 -->
+		<script src="./format/highlight.pack.js" type="text/javascript"></script>
+		<div class="container" id="foot-history" style="display: none;">
+		</div>
+		<script>tj();</script>
+	</body>
+</html>
