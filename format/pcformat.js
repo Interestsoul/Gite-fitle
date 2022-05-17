@@ -20,7 +20,7 @@ function finishTabifier2(code) {
 //换行
 function tabs() {
     var s = '';
-    for (var j = 0; j < level; j++) s += '\t';
+    for (var j = 0; j < level; j++) s += '    ';
     return s;
 }
 
@@ -147,7 +147,7 @@ function cleanCStyle2(code) {
                     i++;
                 } else if ('/*' == incomment && '\n' == c) {
                     //while (code.charAt(i+1).match('\t')) i++;
-                    c = '\n';// + tabs();
+                    //c = '\n';// + tabs();
                 }
                 out += c;
             } else if (instring) {
@@ -172,7 +172,8 @@ function cleanCStyle2(code) {
             } else if ('#else' == code.substr(i, 5)) {
                 i += 4;
                 while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
-                out += '#else ';
+                if(code.charAt(i+1).match('\n')) out += '#else';
+                else out += '#else ';
             } else if ('else' == code.substr(i, 4)) {
                 i += 3;
                 while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
@@ -206,6 +207,11 @@ function cleanCStyle2(code) {
                 level--;
                 out += '} w';
                 i += 2;
+            } else if ('} else' == code.substr(i, 6)) {
+                i += 5;
+                level--;
+                while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
+                out += '} else ';
             } else if ('(' == c) {
                 if(lif == 0) lif++;
                 lif++;
@@ -229,6 +235,9 @@ function cleanCStyle2(code) {
                 level--;
                 out += c;
                 while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
+            } else if (';' == c) {
+                out += c;
+                if(inelse == true) inelse = false;
             // } else if (';' == c && !infor) {
                 // if('\n' == code.charAt(i + 1)) out += ';\n' + tabs();
                 // else out += ';';
@@ -239,10 +248,10 @@ function cleanCStyle2(code) {
                 while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
                 if(code.charAt(i+1).match('}')) level--;
                 if(code.charAt(i+1).match('\n')) out += '\n';
-                else if(code.charAt(i+1).match(/[a-zA-Z]/g) && (lif == 1)) out += '\n\t' + tabs();
-                else if(code.charAt(i+1).match(/[a-zA-Z]/g) && (inelse == true)) {out += '\n' + tabs() + '\t';inelse = false;}
-                else if(code.charAt(i+1).match(/[a-zA-Z]/g) && (incase == true)) out += '\n' + tabs() + '\t';
-                else if(incase == true) out += '\n' + tabs() + '\t';
+                else if(code.charAt(i+1).match(/[a-zA-Z]/g) && (lif == 1)) {level++;out += '\n' + tabs();level--;}
+                else if(code.charAt(i+1).match(/[a-zA-Z]/g) && (inelse == true)) {level++;out += '\n' + tabs();inelse = false;level--;}
+                else if(code.charAt(i+1).match(/[a-zA-Z]/g) && (incase == true)) {level++;out += '\n' + tabs();level--;}
+                else if(incase == true) {level++;out += '\n' + tabs();level--;}
                 else out += '\n' + tabs();
                 if(code.charAt(i+1).match('}')) level++;
             } else if (('\t' == c || ' ' == c) && level == 0) {//函数外部，减少制表符和空格
