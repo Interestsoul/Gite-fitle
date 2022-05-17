@@ -129,24 +129,27 @@ function cleanCStyle2(code) {
         var iStart = i;
         for (; i < code.length && i < iStart + LOOP_SIZE; i++) {
             c = code.charAt(i);//返回指定位置的字符
+            
+            if ((';' == c || '{' == c) && (lif == 1)) {
+                lif = 0;
+            }
             //判断注释
             if (incomment) {
-                // if ('//' == incomment && '\n' == c) {
-                    // incomment = false;
-                // } else if ('//' == incomment && '\t' == c || ' ' == c) {
-                    // c = '';
-                // } else if ('/*' == incomment && '*/' == code.substr(i, 2)) {
-                    // incomment = false;
-                    // c = '*/\n';
-                    // i++;
-                // } else if ('/*' == incomment && '\n' == c) {
-                    // c = '\n' + tabs();
-                // }
-                // if (!incomment) {
-                    // while (code.charAt(++i).match(/\s/)); ; i--;
-                    // c += tabs();
-                // }
-                // out += c;
+                if ('//' == incomment && '\n' == c) {
+                    incomment = false;
+                    c = '';
+                    i--;
+                } else if ('//' == incomment && ('\t' == c || ' ' == c)) {
+                    //c = '';
+                } else if ('/*' == incomment && '*/' == code.substr(i, 2)) {
+                    incomment = false;
+                    c = '*/';
+                    i++;
+                } else if ('/*' == incomment && '\n' == c) {
+                    //while (code.charAt(i+1).match('\t')) i++;
+                    c = '\n';// + tabs();
+                }
+                out += c;
             } else if (instring) {
                 // if (instring == c && ('\\' != code.charAt(i - 1) || '\\' == code.charAt(i - 2)) ) {
                     // instring = false;
@@ -158,20 +161,58 @@ function cleanCStyle2(code) {
             // } else if (infor && ')' == c) {
                 // infor--;
                 // out += c;
-            // } else if ('else' == code.substr(i, 4)) {
-                // out = out.replace(/\s*$/, '') + ' e';
+            } else if ('#if(' == code.substr(i, 4)) {
+                i += 3;
+                out += '#if(';
+            } else if ('else if(' == code.substr(i, 8)) {
+                i += 7;
+                out += 'else if(';
+                if(lif == 0) lif++;
+                lif++;
+            } else if ('#else' == code.substr(i, 5)) {
+                i += 4;
+                while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
+                out += '#else ';
+            } else if ('else' == code.substr(i, 4)) {
+                i += 3;
+                while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
+                out += 'else ';
+                inelse = true;
+            } else if ('case' == code.substr(i, 4)) {
+                out += 'case';
+                i += 3;
+                incase = true;
+            } else if ('default' == code.substr(i, 7)) {
+                out += 'default';
+                i += 6;
+                incase = true;
+            } else if ('break' == code.substr(i, 5)) {
+                out += 'break';
+                i += 4;
+                incase = false;
             // } else if (code.substr(i).match(/^for\s*\(/)) {
                 // infor = 1;
                 // out += 'for (';
                 // while ('(' != code.charAt(++i)); ;
-            // } else if ('//' == code.substr(i, 2)) {
-                // incomment = '//';
-                // out += '//';
-                // i++;
-            // } else if ('/*' == code.substr(i, 2)) {
-                // incomment = '/*';
-                // out += '/*';
-                // i++;
+            } else if ('//' == code.substr(i, 2)) {
+                incomment = '//';
+                out += '//';
+                i++;
+            } else if ('/*' == code.substr(i, 2)) {
+                incomment = '/*';
+                out += '/*';
+                i++;
+            } else if ('} w' == code.substr(i, 3)) {
+                level--;
+                out += '} w';
+                i += 2;
+            } else if ('(' == c) {
+                if(lif == 0) lif++;
+                lif++;
+                out += c;
+            } else if (')' == c) {
+                if(lif >= 2) lif--;
+                out += c;
             // } else if ('"' == c || "'" == c) {
                 // if (instring && c == instring) {
                     // instring = false;
@@ -183,6 +224,7 @@ function cleanCStyle2(code) {
                 level++;
                 out += c;
                 while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
+                if(inelse == true) inelse = false;
             } else if ('}' == c) {//减少制表符数量
                 level--;
                 out += c;
@@ -191,15 +233,22 @@ function cleanCStyle2(code) {
                 // if('\n' == code.charAt(i + 1)) out += ';\n' + tabs();
                 // else out += ';';
                 // while (code.charAt(++i).match(/\s/)); ; i--;
+            } else if('\n//' == code.substr(i, 3)) {
+                out += c;
             } else if ('\n' == c) {//换行之后，不需要额外的制表符和空格
                 while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
                 if(code.charAt(i+1).match('}')) level--;
-                out += '\n' + tabs();
+                if(code.charAt(i+1).match('\n')) out += '\n';
+                else if(code.charAt(i+1).match(/[a-zA-Z]/g) && (lif == 1)) out += '\n\t' + tabs();
+                else if(code.charAt(i+1).match(/[a-zA-Z]/g) && (inelse == true)) {out += '\n' + tabs() + '\t';inelse = false;}
+                else if(code.charAt(i+1).match(/[a-zA-Z]/g) && (incase == true)) out += '\n' + tabs() + '\t';
+                else if(incase == true) out += '\n' + tabs() + '\t';
+                else out += '\n' + tabs();
                 if(code.charAt(i+1).match('}')) level++;
             } else if (('\t' == c || ' ' == c) && level == 0) {//函数外部，减少制表符和空格
                 if(code.charAt(i + 1).match(' '));
                 else out += c;
-            } else if (('\t' == c || ' ' == c) && level > 0) {//函数内部，
+            } else if (('\t' == c || ' ' == c) && level > 0) {//函数内部
                 li = i;
                 while (code.charAt(i+1).match('\t') || code.charAt(i+1).match(' ')) i++;
                 if(code.charAt(i+1).match('\n'));
@@ -217,8 +266,8 @@ function cleanCStyle2(code) {
         }
     }
     //初始化参数
-    var out = tabs(), li = level, c = '';
-    var infor = false, instring = false, incomment = false;
+    var out = tabs(), li = level, c = '', lif = 0;
+    var infor = false, instring = false, incomment = false, inelse = false, incase = false;
     cleanAsync();
 }
 
