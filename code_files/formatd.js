@@ -18,6 +18,7 @@ $(function() {
 				$("#formatinfo").html('');
 				$("#formatdd").val('');
 				showInfo("处理中...");
+				
 			}
 		}, function(data) {
 			var dom = $.parseJSON(data);
