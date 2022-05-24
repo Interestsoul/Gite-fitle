@@ -1,83 +1,35 @@
 <html lang="zh_cn" class="isdrag">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="dns-prefetch" href="//www.chacuo.net">
         <title>
-            在线C语言格式化、在线格式化C语言代码、C语言代码美化器--查错网
+            格式化C语言代码、C语言代码美化器
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link type="text/css" href="./code_files/main.css" rel="stylesheet">
         <link type="text/css" href="./code_files/jquery-ui-1.8.18.custom.css" rel="stylesheet">
-        <script src="./code_files/reactive_library.js" type="text/javascript"></script>
-        <script src="./code_files/show_ads_impl.js" id="google_shimpl" type="text/javascript"></script>
+        <link type="text/css" href="./code_files/web.css" rel="stylesheet">
+        <!-- <link type="text/css" href="./code_files/bdsstyle.css" rel="stylesheet"> -->
+        <script type="text/javascript" src="./code_files/reactive_library.js"></script>
+        <script type="text/javascript" src="./code_files/show_ads_impl.js" id="google_shimpl"></script>
         <script type="text/javascript" src="./code_files/jquery.min.js"></script>
-        
-        <link type="text/css" href="http://www.chacuo.net/css/web.css" rel="stylesheet">
         <script type="text/javascript" src="./code_files/formatd.js"></script>
-        <script language="javascript" src="./code_files/ZeroClipboard.js" type="text/javascript"></script>
-        <script src="./code_files/logger.js" type="text/javascript"></script>
-        <link href="./code_files/bdsstyle.css" rel="stylesheet" type="text/css">
-        
+        <script type="text/javascript" src="./code_files/ZeroClipboard.js" language="javascript"></script>
+        <script type="text/javascript" src="./code_files/logger.js"></script>
     </head>
     <body aria-hidden="false" style="padding: 0px;">
         <div id="main" class="web_width" style="height: auto !important;">
-            <div class="m_t10"></div>
-            <div class="left clearfix" style="">
-                <div class="alert alert-info left_slide_menu" style="height: auto !important; display: block;">
-                    <h2>格式美化工具</h2>
-                    <h5><a href="http://web.chacuo.net/format">格式化/美化</a></h5>
-                    <ul>
-                        <li><a href="http://web.chacuo.net/formathtml" >HTML美化压缩</a></li>
-                        <li><a href="http://web.chacuo.net/formatxml" >XML美化压缩</a></li>
-                        <li><a href="http://web.chacuo.net/formatcss" >CSS美化压缩</a></li>
-                        <li><a href="http://web.chacuo.net/formatjs" >js美化压缩混淆</a></li>
-                        <li><a href="http://web.chacuo.net/formatjson" >Json美化压缩</a></li>
-                        <li><a href="http://web.chacuo.net/formatphp" >Php格式化</a></li>
-                        <li><a href="http://web.chacuo.net/formatsql" >Sql格式化</a></li>
-                        <li class="alert-danger"><a href="http://web.chacuo.net/formatc" >C语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatcpp" >C++语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatd" >D语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatcs" >C#语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatjava" >Java语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatpawn" >PAWN语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatvala" >Vala语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatobjc" >Objc语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatobjcs" >Objc++语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatvbs" >Vbscript美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatsh" >Shell语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatperl" >Perl语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatruby" >Ruby语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatpython" >Python语言美化</a></li>
-                        <li><a href="http://web.chacuo.net/formatjsp" >JSP代码美化</a></li>
-                    </ul>
-                    <h5><a href="http://web.chacuo.net/format">代码压缩</a></h5>
-                    <ul>
-                        <li><a href="http://web.chacuo.net/formathtml" >HTML压缩</a></li>
-                        <li><a href="http://web.chacuo.net/formatxml" >XML压缩</a></li>
-                        <li><a href="http://web.chacuo.net/formatcss" >CSS压缩</a></li>
-                        <li><a href="http://web.chacuo.net/formatjs" >js压缩混淆</a></li>
-                        <li><a href="http://web.chacuo.net/formatjson" >Json压缩</a></li>
-                    </ul>
-                    <h5><a href="http://web.chacuo.net/format">代码混淆</a></h5>
-                    <ul>
-                        <li><a href="http://web.chacuo.net/formatjs" >js混淆混淆</a></li>
-                    </ul>
-                </div>
-                <div class="left_slide" style="">
-                    <a title="隐藏/展示" class="ui-icon ui-icon-triangle-1-w"></a>
-                </div>
-            </div>
-            <div class="middle" style="height: auto !important;">
-                <div class="section_content clearfix" style="height: auto !important;">
-                    <h1>
-                        在线C语言格式化、在线格式化C语言代码、C语言代码美化器
-                    </h1>
-                    <div class="formatd alert-info alert">
-                        <div class="inline-block clearfix">
-                            <span class="l">待格式化C语言代码:</span> <a class="ui-icon ui-icon-copy l" title="复制" forid="formatds" data-clipboard-text="">
-                            </a> <a class="ui-icon ui-icon-close l" title="清除" forid="formatds"></a> <a class="ui-icon ui-icon-comment l" title="读取地址" href="javascript:void();" onclick="javascript:showInputUrl('formatds')"></a>
-                        </div>
-                        <textarea name="formatds" id="formatds" class="textarea clearfix" drag="text">
+            <div class="section_content clearfix" style="height: auto !important;">
+                <h1>
+                    格式化C语言代码、C语言代码美化器
+                </h1>
+                <div class="formatd alert-info alert">
+                    <div class="inline-block clearfix">
+                        <span class="l">待格式化C语言代码:</span>
+                        <a class="ui-icon ui-icon-copy l" title="复制" forid="formatds" data-clipboard-text=""></a>
+                        <a class="ui-icon ui-icon-close l" title="清除" forid="formatds"></a>
+                        <a class="ui-icon ui-icon-comment l" title="读取地址" href="javascript:void();" onclick="javascript:showInputUrl('formatds')"></a>
+                    </div>
+                    <textarea name="formatds" id="formatds" class="textarea clearfix" drag="text">
 # include &lt;stdio.h&gt;
 
 int main(int argc, const char * argv[])
@@ -97,27 +49,27 @@ putchar(c);
 return 0;
 }
 </textarea>
-                        <div style="color:red;margin-top:-5px;margin-left: 20px;">
-                              将你电脑文件直接拖入试试^-^
-                        </div>
-                        <div class="tc">
-                            <input type="button" value="C语言格式化&amp;美化" title="C语言格式化&amp;美化" class="btn f14" arg="format_0">
-                        </div>
-                        <div class="inline-block clearfix">
-                            <span id="formatinfo" class="r"></span> <span class="l">格式化后的C语言代码:</span> <a class="ui-icon ui-icon-copy l" title="复制" forid="formatdd" data-clipboard-text="">
-                            </a> <a class="ui-icon ui-icon-close l" title="清除" forid="formatdd"></a> <a class="ui-icon ui-icon-transferthick-e-w l" title="填充到输入框" forid="formatdd" toid="formatds"></a>
-                        </div>
-                        <textarea name="formatdd" id="formatdd" class="textarea clearfix"></textarea>
+                    <div class="tc">
+                        <input type="button" value="C语言格式化&amp;美化" title="C语言格式化&amp;美化" class="btn f14" arg="format_0">
                     </div>
+                    <div class="inline-block clearfix">
+                        <span id="formatinfo" class="r"></span>
+                        <span class="l">格式化后的C语言代码:</span>
+                        <a class="ui-icon ui-icon-copy l" title="复制" forid="formatdd" data-clipboard-text=""></a>
+                        <a class="ui-icon ui-icon-close l" title="清除" forid="formatdd"></a>
+                        <a class="ui-icon ui-icon-transferthick-e-w l" title="填充到输入框" forid="formatdd" toid="formatds"></a>
+                    </div>
+                    <textarea name="formatdd" id="formatdd" class="textarea clearfix"></textarea>
                 </div>
             </div>
         </div>
-        <div class="clearfix"></div>
         <div class="info f14 shadow zinde1000" id="info" style="position: absolute; top: 351px; left: 575px; display: none;">
             清理完成！
         </div>
-		<script type="text/javascript" src="http://www.chacuo.net/??/js/public/jquery-ui-1.8.18.custom.min.js,/js/public/json2.js,/js/public/jquery.store.js,/js/public/main.js,/js/public/jencode.js?v=1540"></script>
-		<!-- Baidu Button BEGIN -->
-        <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=7&amp;pos=right&amp;uid=793970" src="./code_files/bds_s_v2.js"></script>
+        <script type="text/javascript" src="./code_files/jquery-ui-1.8.18.custom.min.js"></script>
+        <script type="text/javascript" src="./code_files/json2.js"></script>
+        <script type="text/javascript" src="./code_files/jquery.store.js"></script>
+        <script type="text/javascript" src="./code_files/main.js"></script>
+        <script type="text/javascript" src="./code_files/jencode.js?v=1540"></script>
     </body>
 </html>

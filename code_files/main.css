@@ -5,7 +5,7 @@ body { color:#333; background: #fff; }
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, input, label,textarea { margin:0; padding:0; }
 body, td { font:12px/1.5 "Microsoft YaHei","\5fae\8f6f\96c5\9ed1","\5b8b\4f53",sans-serif; }
 h1, h2, h3, h4, h5, h6 { font-size: 100%; }
-li  { list-style: none; }
+li { list-style: none; }
 a { color:#0F3F94; text-decoration:none; }
 a:hover { color:#F30; text-decoration:underline; }
 img { border:0; vertical-align:middle; }
@@ -130,34 +130,34 @@ div.ad1293{margin-left: -15px;}
 #links ul li {float:left;padding-right:10px;}
 
 @-webkit-keyframes flash {
-      0%, 50%, 100% {
-              opacity: 1;
-       }
+    0%, 50%, 100% {
+        opacity: 1;
+    }
 
-      25%, 75% {
-              opacity: 0.5;
-      }
+    25%, 75% {
+        opacity: 0.5;
+    }
 }
 
 @keyframes flash {
-      0%, 50%, 100% {
-              opacity: 1;
-      }
+    0%, 50%, 100% {
+        opacity: 1;
+    }
 
-      25%, 75% {
-              opacity: 0.5;
-      }
+    25%, 75% {
+        opacity: 0.5;
+    }
 }
 
 .flash {
-      -webkit-animation-name: flash;
-      animation-name: flash;
-      animation-iteration-count:infinite;
-      -webkit-animation-iteration-count:infinite;
+    -webkit-animation-name: flash;
+    animation-name: flash;
+    animation-iteration-count:infinite;
+    -webkit-animation-iteration-count:infinite;
 }
 .animated {
-      -webkit-animation-duration: 3s;
-      animation-duration: 3s;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }

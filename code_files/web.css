@@ -1,15 +1,15 @@
-#main .left {float: left;	width: 140px;	margin: 0px 5px 0px 0px;background:none;display: inline; height: auto;}
-#main .color {border: 1px solid #009933;	padding: 10px;}
-#main .color table {	width: 100%;	text-align: center;}
-#main .color td {	border: 1px solid #ccc;	padding: 5px;	font-size: 14px;}
-#main .colorpicker {	border: 1px solid #009933;	padding: 10px;}
-#main .colorpicker table {	text-align: center;	margin: 5px auto;}
-#main .colorpicker td {	width: 22px;	height: 16px;	border: 1px solid #000;	cursor: pointer;}
-#main  .textarea {width:98%;border: 1px solid #EB8F00;	height: 220px;	resize: vertical;	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);	-webkit-border-radius: 4px;	-moz-border-radius: 4px;	border-radius: 4px;padding: 5px 10px;}
-.left .alert {	padding-right: 2px}
-.left .alert h2 {	font-size: 18px;	margin: 0 0 3px 0;	color: #222;}
-.left .alert ul, .left .alert ol {	margin: 0 0 10px 3px;}
-.left .alert li {	color: #404040;	list-style-type: none;	background-image: url(/images/public/arrow.gif);	background-repeat: no-repeat;	background-position: 0 .5em;	padding: 0 0 0 12px;	line-height: 18px;}
+#main .left {float: left;width: 140px;margin: 0px 5px 0px 0px;background:none;display: inline; height: auto;}
+#main .color {border: 1px solid #009933;padding: 10px;}
+#main .color table {width: 100%;text-align: center;}
+#main .color td {border: 1px solid #ccc;padding: 5px;font-size: 14px;}
+#main .colorpicker {border: 1px solid #009933;padding: 10px;}
+#main .colorpicker table {text-align: center;margin: 5px auto;}
+#main .colorpicker td {width: 22px;height: 16px;border: 1px solid #000;cursor: pointer;}
+#main .textarea {width:98%;border: 1px solid #EB8F00;height: 220px;resize: vertical;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;padding: 5px 10px;}
+.left .alert {padding-right: 2px}
+.left .alert h2 {font-size: 18px;margin: 0 0 3px 0;color: #222;}
+.left .alert ul, .left .alert ol {margin: 0 0 10px 3px;}
+.left .alert li {color: #404040;list-style-type: none;background-image: url(/images/public/arrow.gif);background-repeat: no-repeat;background-position: 0 .5em;padding: 0 0 0 12px;line-height: 18px;}
 /*#main .middle {margin-left:150px; } */
 #main .middle {margin-left:150px;}
 #main .left .left_slide{position:fixed;left:142px;top:250px;}
